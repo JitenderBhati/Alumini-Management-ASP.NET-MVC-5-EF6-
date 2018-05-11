@@ -1,0 +1,84 @@
+﻿@model AluminiManagement.Models.tbl_MemberForm
+@if (Session["Email"] == null)
+{
+    Response.Redirect("~/Account/SmartLogin");
+}
+@{
+    ViewBag.Title = "AddMember | Alumni";
+    Layout = "~/Views/Shared/_adminPanelLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("SaveMembers", "ManageMember", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(c => c.uid)
+        @Html.TextBoxFor(c => c.uid, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.uid, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(c => c.name)
+        @Html.TextBoxFor(c => c.name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.name, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(c => c.imagepath)
+        <input type="file" name="imagefile" class="form-control" />
+        @if (Model.imagepath != null)
+        {
+            <img src="@Url.Content(Model.imagepath)" width="250" height="250" />
+        }
+        @Html.ValidationMessageFor(c => c.imagepath, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(c => c.dateofbirth)
+        @Html.EditorFor(c => c.dateofbirth, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.dateofbirth, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(c => c.phoneNo)
+        @Html.TextBoxFor(c => c.phoneNo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.phoneNo, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(c => c.email)
+        @Html.TextBoxFor(c => c.email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.email, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(c => c.password)
+        @Html.PasswordFor(c => c.password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.password, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(c => c.collegelastdate)
+        @Html.EditorFor(c => c.collegelastdate, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.collegelastdate, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(c => c.address)
+        @Html.TextAreaFor(c => c.address, new { @class = "form-control", @cols = "40", @rows = "10", @style = "width:100%;" })
+        @Html.ValidationMessageFor(c => c.address, "", new { @class = "text-danger" })
+    </div>
+    @Html.HiddenFor(c => c.id)
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-outline-success">Save</button>
+        <button type="reset" class="btn btn-danger">Reset</button>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

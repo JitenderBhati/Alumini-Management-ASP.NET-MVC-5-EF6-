@@ -1,0 +1,153 @@
+﻿@*<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">*@
+<!DOCTYPE html>
+<html>
+<head>
+    @*<link href="css/fonts.css" rel="stylesheet" type="text/css" media="screen" />*@
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/admin.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" type="text/css" media="screen"/>
+</head>
+<body>
+    <form>
+        @*<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>*@
+        <center>
+            <section class="top">
+                <ul>
+                    @*<li><a href="#"><img src="~/images/LogoMakr_7cZFmQ.png" alt="Logo" /></a></li>*@
+                    <li>
+                        <dl>
+                            <dt>@Html.ActionLink("Chat", "chat", "ManageMember")</dt>
+                            <dt>Welcome  <span>@User.Identity.Name</span></dt>
+                            <dt class="logout">
+                                @Html.ActionLink("Log Out", "Index" ,"MainPage")
+                            </dt>
+
+                        </dl>
+                    </li>
+                </ul>
+            </section>
+            <section class="nav">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#" title="My Account">
+                                <span><img src="~/icons/my_account.svg" alt="My Account" /></span>
+                                <p>My Account</p>
+                            </a>
+                            <dl class="drop">
+                                <span></span>
+                                <dt><a href="@Url.Action("PasswordChange","ChangePassword")" title="Change Password">Change Password</a></dt>
+                                <dt><a href="@Url.Action("SmartLogin", "Account")" title="Logout">Logout</a></dt>
+                            </dl>
+                        </li>
+                        <li>
+                            <a href="#" title="Alumini's Member">
+                                <span><img src="~/icons/icons8-racism-50.png" alt="Contact Info" /></span>
+                                <p>Alumini's Member</p>
+                            </a>
+                            <dl class="drop">
+                                <span></span>
+                                <dt><a href="@Url.Action("AddMember", "ManageMember")" title="Add Alumini">Add Alumini Member</a></dt>
+                                <dt><a href="@Url.Action("Index", "ManageMember")" title="Manage Alumini">Manage Members</a></dt>
+                            </dl>
+                        </li>
+                        <li>
+                            <a href="#" title="Event`s">
+                                <span><img src="~/icons/icons8-request-service-50.png" alt="Upper Menu" /></span>
+                                <p>Event's</p>
+                            </a>
+                            <dl class="drop">
+                                <dt><a href="@Url.Action("AddEvents", "ManageEvents")" title="Add Event's">Add Event's</a></dt>
+                                <dt><a href="@Url.Action("Index", "ManageEvents")" title="Manage Event's">Manage Event's</a></dt>
+                            </dl>
+                        </li>
+                        @*<li>
+            <a href="#" title="Request Service">
+                <span><img src="~/icons/icons8-red-cross-truck-50.png" alt="Content" /></span>
+                <p>Request Service</p>
+            </a>
+            <dl class="drop">
+                    <dt><a href="Addcontent.aspx" title="Add Web Page Content">Add WebPage Content</a></dt>
+                    <dt><a href="Editcontent.aspx" title="View/Edit Webpage Content">Manage Content</a></dt>
+                    <dt><a href="AddSocialNetworkingUrls.aspx" title="Add Social Media URLs">Add Social Media URL</a></dt>
+                    <dt><a href="ViewEditUrls.aspx" title="View/Edit Social Media URLs">Edit Social Media URL</a></dt>
+                    <dt><a href="AddTesterimonials.aspx" title="Add Testimonials">Add Testimonials</a></dt>
+                    <dt><a href="viewedittesterimonial.aspx" title="View/Edit Testimonials">View/Edit Testimonials</a></dt>
+                    <dt><a href="AdmssionPage.aspx" title="Add Admssion Page Content">Admssion Page</a></dt>
+                </dl>
+        </li>*@
+                        <li>
+                            <a href="#" title="Gallery">
+                                <span><img src="~/icons/icons8-heart-with-pulse-50.png" alt="Updates" /></span>
+                                <p>Galley</p>
+                            </a>
+                            <dl class="drop">
+                                <span></span>
+                                <dt><a href="@Url.Action("AddGallery", "ManageGallery")" title="Add Photo">Add Photo</a></dt>
+                                <dt><a href="@Url.Action("Index", "ManageGallery")" title="Manage Gallery">Manage Gallery</a></dt>
+
+                            </dl>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("#")" title="Manage ">
+                                <span><img src="~/icons/icons8-racism-50.png" alt="Gallery" /></span>
+                                <p>Manage Message</p>
+                            </a>
+                            <dl class="drop">
+                                <span></span>
+                                <dt><a href="@Url.Action("SeenData", "GetInTouch")" title="From Get In Touch">From Get In Touch</a></dt>
+                                @*<dt><a href="Editslider.aspx" title="View/Edit Slider Photo">Manage Slider</a></dt>
+                <dt><a href="UploadPhotos.aspx" title="Add Gallery">Add Gallery</a></dt>
+                <dt><a href="ViewPhotoGallery.aspx" title="Manage Gallery">Manage Gallery</a></dt>*@
+                            </dl>
+                        </li>
+                       
+
+                        <li>
+                            <a href="@Url.Action("Register", "Account")" title="Add Admin">
+                                <span><img src="~/icons/my_account.svg" alt="Gallery" /></span>
+                                <p>Add Admin</p>
+                            </a>
+                            
+                        </li>
+                        @*<li class="userfiles" id="liUserManagement" runat="server" visible="false">
+            <a href="#" title="Users Management">
+                <span><img src="~/icons/users.svg" alt="Users Management" /></span>
+                <p>Users</p>
+            </a>
+            <dl class="drop">
+                <span></span>
+                <dt><a href="NewUser.aspx" title="New Users">New Users</a></dt>
+                <dt><a href="Approvedusers.aspx" title="Approved Usres">Approved Usres</a></dt>
+            </dl>
+        </li>*@
+                        @*<li>
+            <a href="#" title="Topper Management">
+                <span><img src="~/icons/employee.svg" alt="Topper" /></span>
+                <p>Shining Star & Alumni</p>
+            </a>
+            <dl class="drop">
+                <span></span>
+                <dt><a href="Add_Toppers.aspx" title="Add Shining Star/Alumni">Add Star/Alumni</a></dt>
+                <dt><a href="ViewEdit_Toppers.aspx" title="View/Edit Shining Star/Alumni">Manage Star/Alumni</a></dt>
+            </dl>
+        </li>*@
+                        <div class="clear"></div>
+                    </ul>
+                </nav>
+            </section>
+        </center>
+    </form>
+    <div class="container body-content">
+        <br />
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/lib")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

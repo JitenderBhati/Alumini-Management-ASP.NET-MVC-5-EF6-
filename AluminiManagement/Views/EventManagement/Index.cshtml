@@ -1,0 +1,42 @@
+﻿@model IEnumerable<AluminiManagement.Models.tbl_Events>
+@if (Session["EmailId"] == null)
+{
+    Response.Redirect("~/AluminiLogin/Login");
+}
+@{
+    ViewBag.Title = "Index | Alumni";
+    Layout = "~/Views/Shared/_AluminiPanelLayout.cshtml";
+}
+
+<br />
+<table id="alumini" class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Event Name</th>
+            <th>Date of Event</th>
+            <th>Images</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model)
+        {
+            <tr>
+                <td>@data.name</td>
+                <td>@data.dateofevent.ToString("dd MMM yyyy")</td>
+                @if (data.imagepath != null)
+                {
+                    <td><img src="@Url.Content(data.imagepath)" ,width="100" , height="100" /></td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#alumini").DataTable();
+        });
+    </script>
+}
+

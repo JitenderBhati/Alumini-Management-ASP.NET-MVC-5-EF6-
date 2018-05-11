@@ -1,0 +1,46 @@
+﻿@model AluminiManagement.Models.Alumini_Login
+
+@{
+    Layout = null;
+    ViewBag.Title = "Login | Alumni";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <title>Login | Alumini</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="~/Content/font-awesome.css">
+    <link rel="stylesheet" href="~/Content/style.css">
+    <!-- google fonts  -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,500,600,700" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+    <div class="agile-login">
+        <h1>Alumini's Login</h1>
+        <div class="wrapper">
+            <h2>Login</h2>
+            <div class="w3ls-form">
+                @using (Html.BeginForm("Authenticate", "AluminiLogin", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <label>Email</label>
+                    @Html.TextBoxFor(c => c.email, new { @placeholder = "Email", @class = "form-coontrol" })
+                    @*<input type="text" name="name" placeholder="Username" required />*@
+                    <label>Password</label>
+                    @Html.PasswordFor(c => c.password, new { @placeholder = "Password"})                   
+                    @*<input type="text" name="password" placeholder="Password" required />*@
+                    <input type="submit" value="LogIn" class="btn-primary" />
+                }
+            </div>
+        </div>
+        <br>
+    </div>
+</body>
+</html>

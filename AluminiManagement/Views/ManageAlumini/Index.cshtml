@@ -1,0 +1,112 @@
+﻿@model AluminiManagement.Models.tbl_MemberForm
+@if (Session["EmailId"] == null)
+{
+    Response.Redirect("~/AluminiLogin/Login");
+}
+@{
+    ViewBag.Title = "Index | Alumini";
+    Layout = "~/Views/Shared/_AluminiPanelLayout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@Model.name</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="@Url.Content(Model.imagepath)" class="img-circle img-responsive"> </div>
+                        <div class=" col-md-9 col-lg-9 ">
+                            <table class="table table-user-information">
+                                <tbody>
+                                    <tr>
+                                        <td>University Id: </td>
+                                        <td>@Model.uid</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email: </td>
+                                        <td>@Model.email</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Password:</td>
+                                        <td>@Model.password</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date Of Birth</td>
+                                        <td>@Model.dateofbirth.ToString("dd MMM yyy")</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date of Leaving College</td>
+                                        <td>@Model.collegelastdate.ToString("dd MMM yyyy")</td>
+                                    </tr>
+
+                                    <tr>
+                                    <tr>
+                                        <td>Gender</td>
+                                        <td>Male</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Address</td>
+                                        <td>@Model.address</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td><a href="mailto:@Url.Content(Model.email)">@Model.email</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phone Number</td>
+                                        <td>@Model.phoneNo</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <input type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit","ManageAlumini")'" value="Edit Profile" />                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+    {
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="~/Content/Profile.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            var panels = $('.user-infos');
+            var panelsButton = $('.dropdown-user');
+            panels.hide();
+
+            //Click dropdown
+            panelsButton.click(function () {
+                //get data-for attribute
+                var dataFor = $(this).attr('data-for');
+                var idFor = $(dataFor);
+
+                //current button
+                var currentButton = $(this);
+                idFor.slideToggle(400, function () {
+                    //Completed slidetoggle
+                    if (idFor.is(':visible')) {
+                        currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
+                    }
+                    else {
+                        currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
+                    }
+                })
+            });
+
+            $('[data-toggle="tooltip"]').tooltip();
+
+            $('button').click(function (e) {
+                e.preventDefault();
+                alert("This is a demo.\n :-)");
+            });
+        });
+    </script>
+}

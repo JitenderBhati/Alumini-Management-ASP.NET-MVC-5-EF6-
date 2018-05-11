@@ -1,0 +1,184 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+@media (min-width:970px) and (max-width: 1088px){
+	header, nav, footer, .news{ height:auto; width:100%;}
+	header > ul, nav > ul, footer > ul, .wrapper{ height:auto; width:90%;}
+	.wrapper > .left_side{ height:auto; width:70%;}
+	.wrapper > .right_side{ height:auto; width:30%;}
+	}
+	
+@media (min-width:728px) and (max-width: 969px){
+	header, footer, .news{ height:auto; width:100%;}
+	header > ul, nav > ul, footer > ul, .wrapper{ height:auto; width:90%;}
+	nav > ul {flex-flow: row wrap;}
+	nav{ width:90%; margin:0 auto;}
+	nav > ul{ height:auto; width:100%; display:none; position:relative; background:#f0f0f0;}
+	nav > ul > li{ float:none; height:auto; width:auto; margin:0px; padding:0;}
+	nav > ul > li > a{ display:block; font:700 13px/48px 'Heebo', sans-serif; color:#888; text-align:center; text-decoration:none; 
+	padding:0 20px; white-space:nowrap; border-top:1px solid #ddd;}
+	nav > ul > li > a:hover{ color:#111; background:#ddd;}
+	nav > input[type="checkbox"] { cursor: pointer; display: none;}
+	nav > .show-nav{height:42px; width:100%; background:#e6e6e6; text-align:left; cursor:pointer; font:500 16px 'Heebo', sans-serif; color:#555; display:flex; align-items:center;}
+	nav > .show-nav span{ height:42px; font-size:20px; color:#333; padding:0 10px;}
+	nav > input[type=checkbox]:checked ~ #menu{ display:block;  z-index:999;}	
+	.wrapper { flex-flow:column;}
+	.wrapper > .left_side{ height:auto; width:100%; float:none;}
+	.wrapper > .right_side{ height:auto; width:100%; float:none;}
+	}
+	
+@media (min-width:480px) and (max-width: 727px){
+	header, nav, footer, .news{ height:auto; width:100%;}
+	header > ul, nav > ul, footer > ul, .wrapper{ height:auto; width:90%;}
+	header > ul { align-items: center; display: flex; flex-flow: row wrap;}
+	header > ul > li{ width:100%; flex-flow:row wrap; justify-content:center;}
+	header > ul > li:nth-child(2){ margin:15px 15px 0 15px;}
+	header > ul > li > dl > dt { margin-right: 10px; display:flex; width:26%;}	
+	nav > ul {flex-flow: row wrap;}
+	nav{ width:90%; margin:0 auto;}
+	nav > ul{ height:auto; width:100%; display:none; position:relative; background:#f0f0f0;}
+	nav > ul > li{ float:none; height:auto; width:auto; margin:0px; padding:0;}
+	nav > ul > li > a{ display:block; font:700 13px/48px 'Heebo', sans-serif; color:#888; text-align:center; text-decoration:none; 
+	padding:0 20px; white-space:nowrap; border-top:1px solid #ddd;}
+	nav > ul > li > a:hover{ color:#111; background:#ddd;}
+	nav > input[type="checkbox"] { cursor: pointer; display: none;}
+	nav > .show-nav{height:42px; width:100%; background:#e6e6e6; text-align:left; cursor:pointer; font:500 16px 'Heebo', sans-serif; color:#555; display:flex; align-items:center;}
+	nav > .show-nav span{ height:42px; font-size:20px; color:#333; padding:0 10px;}
+	nav > input[type=checkbox]:checked ~ #menu{ display:block;  z-index:999;}	
+	.wrapper { flex-flow:column;}
+	.wrapper > .left_side{ height:auto; width:100%; float:none;}
+	.wrapper > .right_side{ height:auto; width:100%; float:none;}
+	.main_news{ flex-flow:column wrap;}
+	.main_news > .left_main, .right_main{ width:96%; margin:15px 2%;}
+	.news > .main_news > .left_main, .right_main{ width:96%; margin:15px 2%;}
+	.other_main_news > li{ margin:15px 2%; height:auto; width:46%;}
+	.news > .other_news > li{ height:auto; width:96%; margin:15px 2%;}
+	.photo_album > ul > li{  width:46%; margin:15px 2%;}
+	.video_album > ul > li{ width:46%; margin:15px 2%;}
+	.photoslider{ height:auto; width:auto; margin:0;}
+	.innerpage > li > dl > dt{ height:auto; width:70%; }
+    .innerpage > li > dl > dt > a {  font: 500 16px/18px "Heebo", sans-serif;     }
+    .innerpage > li > dl > dt:nth-child(1) { height: auto;  width: 30%;  }
+	.artists1 > li{ width:32.6%; margin:10px .2%;}
+	.artistbg{margin:0; }
+	.follow > li{ height:auto; width:95%;} 
+	.artistbg > ul > li > h1{font:500 24px/32px 'Heebo', sans-serif;}
+	footer > ul{ flex-flow:row wrap;}
+	footer > ul > li{ height:auto; width:46%; margin:15px 2%;}
+    .fullnews > h1 {
+        font: 600 24px/28px "Heebo",sans-serif;
+    }
+	}
+	
+@media (min-width:320px) and (max-width: 479px){
+	.show{ display:none;}
+	.hide{ display:flex;}
+	header, nav, footer, .news{ height:auto; width:100%;}
+	header > ul, nav > ul, footer > ul, .wrapper{ height:auto; width:90%;}
+	header > ul { align-items: center; display: flex; flex-flow: row wrap;}
+	header > ul > li{ width:100%; flex-flow:row wrap; justify-content:center;}
+	header > ul > li:nth-child(2){ margin-top:15px;}
+	header > ul > li > dl > dt { margin-right: 10px;}
+	nav > ul {flex-flow: row wrap;}
+	nav{ width:90%; margin:0 auto;}
+	nav > ul{ height:auto; width:100%; display:none; position:relative; background:#f0f0f0;}
+	nav > ul > li{ float:none; height:auto; width:auto; margin:0px; padding:0;}
+	nav > ul > li > a{ display:block; font:700 13px/48px 'Heebo', sans-serif; color:#888; text-align:center; text-decoration:none; 
+	padding:0 20px; white-space:nowrap; border-top:1px solid #ddd;}
+	nav > ul > li > a:hover{ color:#111; background:#ddd;}
+	nav > input[type="checkbox"] { cursor: pointer; display: none;}
+	nav > .show-nav{height:42px; width:100%; background:#e6e6e6; text-align:left; cursor:pointer; font:500 16px 'Heebo', sans-serif; color:#555; display:flex; align-items:center;}
+	nav > .show-nav span{ height:42px; font-size:20px; color:#333; padding:0 10px;}
+	nav > input[type=checkbox]:checked ~ #menu{ display:block;  z-index:999;}
+	.wrapper { flex-flow:column;}
+	.wrapper > .left_side{ height:auto; width:100%; float:none;}
+	.wrapper > .right_side{ height:auto; width:100%; float:none;}
+	.main_news{ flex-flow:column wrap;}
+	.main_news > .left_main, .right_main{ width:96%; margin:15px 2%;}
+	.news > .main_news > .left_main, .right_main{ width:96%; margin:15px 2%;}
+	.other_main_news > li{ margin:15px 2%; height:auto; width:46%;}
+	.news > .other_news > li{ height:auto; width:96%; margin:15px 2%;}
+	.moresports > li > p{ display:none;}
+	.photo_album > ul > li{  width:96%; margin:15px 2%;}
+	.video_album > ul > li{ width:96%; margin:15px 2%;}
+	.photoslider{ height:auto; width:auto; margin:0;}
+    .innerpage > li > dl > dt {
+        height: auto;
+        width: 70%;
+    }
+
+        .innerpage > li > dl > dt > a {
+            font: 500 16px/18px "Heebo", sans-serif;
+        }
+
+        .innerpage > li > dl > dt:nth-child(1) {
+            height: auto;
+            width: 30%;
+        }
+	.artistbg{margin:0;}
+	.artistbg > ul > li > h1{font:500 24px/32px 'Heebo', sans-serif;}
+	.artists1 > li{ width:49.6%; margin:10px .2%;}
+	.videosong > li{  width:98%; margin:15px 1%;}
+	.follow > li{ height:auto; width:95%;} 
+	footer > ul{ flex-flow:row wrap;}
+	footer > ul > li{ height:auto; width:46%; margin:15px 2%;}
+    .fullnews > h1 {
+        font: 600 24px/28px "Heebo",sans-serif;
+    }
+	}
+	
+@media (max-width:320px){
+	.show{ display:none;}
+	.hide{ display:flex;}
+	header, nav, footer, .news{ height:auto; width:100%;}
+	header > ul, nav > ul, footer > ul, .wrapper{ height:auto; width:90%;}
+	header > ul { align-items: center; display: flex; flex-flow: row wrap;}
+	header > ul > li{ width:100%; flex-flow:row wrap; justify-content:center;}
+	header > ul > li:nth-child(2){ margin-top:15px; justify-content:center;}
+	header > ul > li > dl > dt { margin-right: 10px;}	
+	nav > ul {flex-flow: row wrap;}
+	nav{ width:90%; margin:0 auto;}
+	nav > ul{ height:auto; width:100%; display:none; position:relative; background:#f0f0f0;}
+	nav > ul > li{ float:none; height:auto; width:auto; margin:0px; padding:0;}
+	nav > ul > li > a{ display:block; font:700 13px/48px 'Heebo', sans-serif; color:#888; text-align:center; text-decoration:none; 
+	padding:0 20px; white-space:nowrap; border-top:1px solid #ddd;}
+	nav > ul > li > a:hover{ color:#111; background:#ddd;}
+	nav > input[type="checkbox"] { cursor: pointer; display: none;}
+	nav > .show-nav{height:42px; width:100%; background:#e6e6e6; text-align:left; cursor:pointer; font:500 16px 'Heebo', sans-serif; color:#555; display:flex; align-items:center;}
+	nav > .show-nav span{ height:42px; font-size:20px; color:#333; padding:0 10px;}
+	nav > input[type=checkbox]:checked ~ #menu{ display:block;  z-index:999;}
+	.wrapper { flex-flow:column;}
+	.wrapper > .left_side{ height:auto; width:100%; float:none;}
+	.wrapper > .right_side{ height:auto; width:100%; float:none;}
+	.main_news{ flex-flow:column wrap;}
+	.main_news > .left_main, .right_main{ width:96%; margin:15px 2%;}
+	.news > .main_news > .left_main, .right_main{ width:96%; margin:15px 2%;}
+	.other_main_news > li{ margin:15px 2%; height:auto; width:46%;}
+	.news > .other_news > li{ height:auto; width:96%; margin:15px 2%;}
+	.moresports > li > p{ display:none;}
+	.photo_album > ul > li{  width:96%; margin:15px 2%;}
+	.video_album > ul > li{ width:96%; margin:15px 2%;}
+	.photoslider{ height:auto; width:auto; margin:0;}
+    .innerpage > li > dl > dt {
+        height: auto;
+        width: 70%;
+    }
+
+        .innerpage > li > dl > dt > a {
+            font: 500 16px/18px "Heebo", sans-serif;
+        }
+
+        .innerpage > li > dl > dt:nth-child(1) {
+            height: auto;
+            width: 30%;
+        }
+	.artistbg{margin:0;}
+	.artistbg > ul > li > h1{font:500 24px/32px 'Heebo', sans-serif;}
+	.artists1 > li{ width:49.6%; margin:10px .2%;}
+	.videosong > li{  width:98%; margin:15px 1%;}
+	.follow > li{ height:auto; width:95%;} 
+	footer > ul{ flex-flow:row wrap;}
+	footer > ul > li{ height:auto; width:46%; margin:15px 2%;}
+    .fullnews > h1 {        font: 600 24px/28px "Heebo",sans-serif;    }
+	}
+

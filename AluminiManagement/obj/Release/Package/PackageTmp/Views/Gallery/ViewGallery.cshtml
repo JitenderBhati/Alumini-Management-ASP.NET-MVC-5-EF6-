@@ -1,0 +1,40 @@
+﻿@model IEnumerable<AluminiManagement.Models.tbl_gallery>
+@{
+    ViewBag.Title = "View Gallery | Alumni";
+    Layout = "~/Views/Shared/_AluminiPanelLayout.cshtml";
+}
+@if (Session["EmailId"] == null)
+{
+    Response.Redirect("~/AluminiLogin/Login");
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Photo</th>
+            <th>View</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model)
+        {
+            <tr>
+                <td><b>@data.title</b></td>
+                <td><h4>@data.desc</h4></td>
+                @if (data.imagepath != null)
+                {
+                    <td><img src="@Url.Content(data.imagepath)" width="100" height="100" /></td>
+                }
+
+                <td>@Html.ActionLink("View", "Views", "Gallery", new { id = data.id }, null)</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+
+
+

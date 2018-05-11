@@ -1,0 +1,29 @@
+﻿@model AluminiManagement.Models.tbl_gallery
+@if (Session["EmailId"] == null)
+{
+    Response.Redirect("~/AluminiLogin/Login");
+}
+@{
+    ViewBag.Title = "Views | Alumni";
+    Layout = "~/Views/Shared/_AluminiPanelLayout.cshtml";
+}
+<br />
+<br />
+@Html.ActionLink("Back To Gallery", "ViewGallery", "Gallery", "", null)
+<br />
+<br />
+
+<h1><b><u>@Model.title</u></b></h1>
+<br />
+<br />
+<img src="@Url.Content(Model.imagepath)" width="300" height="350" />
+<br />
+<br />
+<h3>@Model.desc</h3>
+<br />
+<br />
+
+
+
+
+

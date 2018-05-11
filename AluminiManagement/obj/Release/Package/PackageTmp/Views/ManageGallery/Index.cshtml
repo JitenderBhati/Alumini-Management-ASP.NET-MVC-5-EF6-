@@ -1,0 +1,55 @@
+﻿@model IEnumerable<AluminiManagement.Models.tbl_gallery>
+@if (Session["Email"] == null)
+{
+    Response.Redirect("~/Account/SmartLogin");
+}
+@{
+    ViewBag.Title = "Index | Alumni";
+    Layout = "~/Views/Shared/_adminPanelLayout.cshtml";
+}
+
+<br />
+<table id="alumini" class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Upload Date</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model)
+        {
+            <tr>
+
+                <td>@Html.ActionLink(data.title, "Edit", "ManageGallery", new { id = data.id }, null)</td>
+                <td>@data.desc</td>
+                <td>@data.date.ToString("dd MMM yyyy")</td>
+                <td><button data-alumini-id="@data.id" class="btn-link js-delete">Delete</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#alumini").DataTable();
+            $("#alumini .js-delete").on("click", function () {
+                var button = $(this);
+                bootbox.confirm("Sure want to delete this Event?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/gallery/" + button.attr("data-alumini-id"),
+                            method: "DELETE",
+                            success: function () {
+                                button.parents("tr").remove();
+                            }
+                        });
+                    }
+                })
+            })
+        });
+    </script>
+}

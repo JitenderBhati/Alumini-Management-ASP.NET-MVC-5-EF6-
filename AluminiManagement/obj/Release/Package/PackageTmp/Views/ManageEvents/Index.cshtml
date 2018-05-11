@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AluminiManagement.Models.tbl_Events>
+@if (Session["Email"] == null)
+{
+    Response.Redirect("~/Account/SmartLogin");
+}
+@{
+    ViewBag.Title = "Manage Event | Alumni";
+    Layout = "~/Views/Shared/_adminPanelLayout.cshtml";
+}
+
+<br />
+<table id="alumini" class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Event Name</th>
+            <th>Date of Event</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model)
+        {
+            <tr>
+
+                <td>@Html.ActionLink(data.name, "Edit", "ManageEvents", new { id = data.id }, null)</td>
+                <td>@data.dateofevent.ToString("dd MMM yyyy")</td>
+                <td><button data-alumini-id="@data.id" class="btn-link js-delete">Delete</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#alumini").DataTable();
+            $("#alumini .js-delete").on("click", function () {
+                var button = $(this);
+                bootbox.confirm("Sure want to delete this Event?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/events/" + button.attr("data-alumini-id"),
+                            method: "DELETE",
+                            success: function () {
+                                button.parents("tr").remove();
+                            }
+                        });
+                    }
+                })
+            })
+        });
+    </script>
+}
